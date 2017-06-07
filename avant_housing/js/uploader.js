@@ -10,7 +10,7 @@ $(function () {
     //10MB
     var maxSize = 10 * 1024 * 1024;
     // 图片最大宽度
-    var maxWidth = 5000;
+    var maxWidth = 1500;
     // 最大上传图片数量
     var maxCount = 6;
     $('#uploaderInput').on('change', function (event) {
@@ -112,6 +112,7 @@ function postData() {
         }
 
     }).fail(function() {
+        $('#loadingToast').hide();
         weui.alert('提交失败，请重试')
   });
 }
