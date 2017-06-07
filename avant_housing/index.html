@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>租房图片生成</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <link rel="stylesheet" href="css/example.css" type="text/css" />
+    <link rel="stylesheet" href="css/weui.css" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="js/uploader.js"></script>
+</head>
+
+<body>
+
+    <div class='form'>
+
+        <div class="page__hd" id='hd1'>
+            <h1 class="page__title">租房信息图片生成器</h1>
+            <p class="page__desc">嘻嘻嘻</p>
+        </div>
+
+        <div class="page__bd" id='bd1'>
+            <div class="weui-cells__title">出租类型</div>
+            <div class="weui-cells weui-cells_radio">
+                <label class="weui-cell weui-check__label" for="x11">
+                    <div class="weui-cell__bd">
+                        <p>Condo</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                        <input type="radio" class="weui-check" name="radio1" id="x11" checked="checked" value="Condo">
+                        <span class="weui-icon-checked"></span>
+                    </div>
+                </label>
+                <label class="weui-cell weui-check__label" for="x12">
+
+                    <div class="weui-cell__bd">
+                        <p>House</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                        <input type="radio" name="radio1" class="weui-check" id="x12" value="House">
+                        <span class="weui-icon-checked"></span>
+                    </div>
+                </label>
+            </div>
+
+            <div class="weui-cells__title">出租租期</div>
+            <div class="weui-cells weui-cells_radio">
+                <label class="weui-cell weui-check__label" for="x21">
+                    <div class="weui-cell__bd">
+                        <p>短租</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                        <input type="radio" class="weui-check" name="radio2" id="x21" value="短租">
+                        <span class="weui-icon-checked"></span>
+                    </div>
+                </label>
+
+                <label class="weui-cell weui-check__label" for="x22">
+                    <div class="weui-cell__bd">
+                        <p>长租</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                        <input type="radio" name="radio2" class="weui-check" id="x22" value="长租">
+                        <span class="weui-icon-checked"></span>
+                    </div>
+                </label>
+                <label class="weui-cell weui-check__label" for="x23">
+                    <div class="weui-cell__bd">
+                        <p>灵活</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                        <input type="radio" class="weui-check" name="radio2" id="x23" checked="checked" value="灵活">
+                        <span class="weui-icon-checked"></span>
+                    </div>
+                </label>
+            </div>
+
+
+            <div class="weui-cells__title">入住日期</div>
+            <div class="weui-cells weui-cells_radio">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <label for="" class="weui-label">日期</label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <input id='enter_time' class="weui-input" type="date" value="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="weui-cells__title">描述信息(最多300字)</div>
+            <div class="weui-cells weui-cells_form">
+                <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                        <textarea class="weui-textarea" placeholder="大致描述一下这个房源" rows="5"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="weui-cells__title">房源图片和微信二维码上传（请最后上传微信二维码）</div>
+            <div class="weui-cells weui-cells_form" id='property_images'>
+                <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                        <div class="weui-uploader">
+                            <div class="weui-uploader__hd">
+                                <p class="weui-uploader__title"></p>
+                                <div class="weui-uploader__info">0/6</div>
+                            </div>
+                            <div class="weui-uploader__bd">
+                                <ul class="weui-uploader__files" id="weui-uploader__files">
+                                </ul>
+                                <div class="weui-uploader__input-box">
+                                    <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="weui-btn-area">
+                <a class="weui-btn weui-btn_primary" href="javascript:postData()" id="showTooltips">确定</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="loadingToast">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast">
+            <i class="weui-loading weui-icon_toast"></i>
+            <p class="weui-toast__content">数据加载中</p>
+        </div>
+    </div>
+
+    <div class="page__hd" id='hd2' style="display: none;">
+        <h1 class="page__title">图片已成功生成</h1>
+        <p class="page__desc">您可以长按图片选择保存或分享到群聊</p>
+    </div>
+
+    <div class="page__bd" id='bd2' style="display: none;">
+
+    </div>
+
+
+
+    <!-- / content -->
+    <div class="page__bd page__bd_spacing">
+        <div class="weui-footer">
+            <br>
+            <p class="weui-footer__text">小多课程表 x AvantClass</p>
+        </div>
+        <br>
+        <br>
+    </div>
+</body>
+
+</html>
