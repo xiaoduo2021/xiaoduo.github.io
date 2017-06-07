@@ -1,6 +1,8 @@
 
 var images = [];
 var wechatImage;
+//var API = 'http://127.0.0.1:8082/files?filename=';
+var API = 'https://api.xiaoduo.ca/avant/files?filename=';
 
 $(function () {
 
@@ -11,6 +13,7 @@ $(function () {
     var maxSize = 10 * 1024 * 1024;
     // 图片最大宽度
     var maxWidth = 1500;
+    
     // 最大上传图片数量
     var maxCount = 6;
     $('#uploaderInput').on('change', function (event) {
@@ -95,6 +98,7 @@ function postData() {
     $.ajax({
       type: "POST",
       url: "https://api.xiaoduo.ca/avant/postHousingData",
+      //url: "http://127.0.0.1:8082/postData",
       dataType: 'json',
       data: {'category': category, 
             'length': length, 
@@ -107,7 +111,7 @@ function postData() {
             $(".form").hide();
             $("#hd2").show();
             $("#bd2").show();
-            $('#bd2').html('<img class="result_img" src="data:image/png;base64, ' + o.data.slice(2,-1) +  ' " alt="Red dot" />')
+            $('#bd2').html('<img class="result_img" src="' + API + o.data + '" alt="Red dot" />')
             $("html, body").animate({ scrollTop: 0 }, "slow");
         }
 
