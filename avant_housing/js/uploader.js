@@ -39,6 +39,7 @@ $(function () {
 
     $('#uploaderInput').on('change', function (event) {
         var files = event.target.files;
+
         // 如果没有选中文件，直接返回
         if (files.length === 0) {
             return;
