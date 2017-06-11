@@ -147,7 +147,7 @@ function postData() {
     $.ajax({
       type: "POST",
       //url: "https://api.xiaoduo.ca/avant/postHousingData",
-      url: API_URL + "/postData",
+      url: API_URL + "/postHousingData",
       dataType: 'json',
       data: {'category': category, 
             'length': length, 
