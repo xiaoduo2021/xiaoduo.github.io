@@ -61,7 +61,7 @@ $(function () {
                 continue;
             }
 
-            if (imagesFilename.length >= maxCount) {
+            if (imagesFilename.length + files.length > maxCount) {
                 weui.alert('最多只能上传' + maxCount + '张图片');
                 $('#loadingToast').hide();
                 upload_remaining = 0;
@@ -75,7 +75,6 @@ $(function () {
                     var w = Math.min(maxWidth, img.width);
                     // 高度按比例计算
                     var h = img.height * (w / img.width);
-
 
                     var canvas = document.createElement('canvas');
                     var ctx = canvas.getContext('2d');
