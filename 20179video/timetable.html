@@ -1,0 +1,193 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=320,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta charset="UTF-8">
+    <title>哈哈</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #cccccc;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #parent {
+            width: 100%;
+            height: 100%;
+        }
+        .cover {
+            z-index: 100;
+            display: none;
+            position: absolute;
+            width: 720px;
+            height: 1280px;
+            top: 0;
+            left: 0;
+            background: url(timetable.png) no-repeat;
+            background-size: cover;
+        }
+        #video {
+            background: url(timetable.png) no-repeat;
+            background-size: cover;
+        }
+        /*
+        以下样式设置的目的:
+        video在IOS9(包括9)以上系统版本,微信/手Q里面能自动播放,
+        除满足上述条件以外的IOS系统播放video,
+        需要借助以下样式设置来屏蔽默认video控件,
+        并通过video.currentTime来实现播放效果;
+        */
+
+        .IIV::-webkit-media-controls-play-button,
+        .IIV::-webkit-media-controls-start-playback-button {
+            opacity: 0;
+            pointer-events: none;
+            width: 5px;
+        }
+    </style>
+    <style type="text/css">
+        :root [href^="http://www.10100000.com/"],
+        :root .yw-gg-float,
+        :root .xxskj,
+        :root .topbanner,
+        :root .tl_ad,
+        :root .tb12-activity,
+        :root .tb-activity-list,
+        :root .sider_ad,
+        :root .qiye-Article-QQ,
+        :root .player_bg_ad,
+        :root .mod_stridead,
+        :root .mod_custom_ad,
+        :root .mod_ad_main,
+        :root .mod-ad-full,
+        :root .mian-ad,
+        :root .member_ads,
+        :root .main_ad_top,
+        :root .main_ad_bottom,
+        :root .l_qq_com,
+        :root .jpBanner,
+        :root .in-top-ad,
+        :root .dongfengad,
+        :root .business-Article-QQ,
+        :root .body-Top-Ad,
+        :root .advs,
+        :root .adv1000,
+        :root .adcent,
+        :root .adbutton-Aritcle-QQ,
+        :root .ad_670_90,
+        :root .ad-text-box,
+        :root .ad-long-pic,
+        :root .ad-foot,
+        :root .ad-box,
+        :root .action_ad,
+        :root .aaddvv__list,
+        :root ._switchad,
+        :root .AdTop-Article-QQ,
+        :root .AdBox-Article-QQ,
+        :root #r_ad,
+        :root #qqmail_AD_container,
+        :root #qqadv,
+        :root #pop_apps_sponsors,
+        :root #nqsnqsad02,
+        :root #iwanAD2,
+        :root #image_ad,
+        :root #fr_ad,
+        :root #focus_jordon,
+        :root #coo_qqBrowser,
+        :root #comic_ad,
+        :root #bottom-sponsor,
+        :root #barrageBase,
+        :root #ay-tips-close + h2,
+        :root #ay-bottom-tips > .bd > .pic-box,
+        :root #advertisement,
+        :root #advert,
+        :root #adImgHref,
+        :root #ad-fullscreen,
+        :root #AdRight-Article-QQ {
+            display: none !important;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+    <script>
+    $( document ).ready(function() {
+        window.scrollTo(0, 0);
+    });
+    // click event
+    </script>
+
+
+</head>
+
+<body data-gr-c-s-loaded="true">
+
+    <div id="parent" style="position: absolute; transform-origin: 0% 0% 0px; transform: matrix(0.58, 0, 0, 0.58, -1, -2);">
+        <div style="position: absolute;">
+            <video id="video" poster="timetable.png" style="display: block;" x-webkit-airplay="true" airplay="allow" webkit-playsinline="true" playsinline="true" src="timetable.mp4" class="IIV"></video>
+        </div>
+        <div class="cover" id="hit" style="display: block;"></div>
+    </div>
+    <script src="http://up.qq.com/2017/a20170405videos/mmd.videoPlayer.min.js"></script>
+    <script src="http://ossweb-img.qq.com/images/spiderMediaData/up_new/mediaURLData.js"></script>
+
+    <script>
+        function startCounting(){
+            setTimeout(function(){ 
+                console.log('can click now');
+                var btn = document.getElementById('hit');
+                btn.style.display = 'block';
+                btn.style.opacity = "0";
+                btn.addEventListener('click', function(e) {
+                    window.location.href = "http://xiaoduo.ca";
+                });
+            }, 15000);
+        }
+        var src = 'timetable.mp4';
+        var w = 720,
+            h = 1280;
+        var video = new MMD.VideoPlayer(
+            document.getElementById('parent'), //video对象的父级div,这样有利于覆盖在video上方的内容对位,诸如loading,落地页等;
+            document.getElementById('video'), //video对象;
+            src, //video地址;
+            w, h, //video原始宽高;
+            'auto', //内容对齐方式:auto[根据video比例进行判断,铺满全屏,或裁剪高度或裁剪宽度],width[宽度显示完全],height[高度显示完全]
+            true //竖屏/横屏:true/false;
+        );
+        /*
+         * 用来判断video是否支持自动播放;
+         * true:直接调用play方法播放video;
+         * false:需要通过按钮点击来触发play方法;
+         * */
+        //video.isVideoCanAutoPlay;
+        /*
+         * video播放方法,里面做兼容处理,在IOS9(包括9)以上的系统,微信/手Q能自动播放;
+         * */
+        //video.play();
+        //console.log('video.isVideoCanAutoPlay:',video.isVideoCanAutoPlay);
+        var btn = document.getElementById('hit');
+        if (video.isVideoCanAutoPlay) {
+            btn.style.display = 'none';
+            video.play();
+            startCounting();
+        } else {
+            btn.style.display = 'block';
+            btn.addEventListener('click', function(e) {
+                btn.style.display = 'none';
+                video.play();
+                startCounting();
+            });
+        }
+    </script>
+
+</body>
+
+</html>
