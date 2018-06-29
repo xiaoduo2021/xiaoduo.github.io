@@ -13,8 +13,18 @@ $(document).ready( function () {
           { data: 'courseload' },
           { data: 'recommand' },
       ],
+      language: {
+          "lengthMenu": "",
+          "zeroRecords": "没有找到任何结果",
+          "info": "",
+          "infoEmpty": "没有找到任何结果",
+          "infoFiltered": "",
+          "search": "",
+      },
     });
-} );
+    $(".dataTables_filter input").addClass("form-control")
+    $(".dataTables_filter input").attr("placeholder", '搜索');
+});
 
 function drawRadarChart(data) {
   radarChart.config.data = {
@@ -58,6 +68,16 @@ function searchCourse() {
     	if (res.status == 0){
         loadTableData(res.data.full_result);
         loadChartData(res.data.avg_result);
+
+        // show data cards
+        $('#radarChartCard').show();
+        $('#fullTableCard').show();
+
+        // scroll
+        $('html, body').animate({
+            scrollTop: $("#radarChartCard").offset().top - 20
+        }, 1000);
+
         $('.courseCode').html(courseCode);
       }
       else{
@@ -97,7 +117,7 @@ function getOneCell(item) {
 function loadChartData(data){
   let datasets = [];
   let usedColor = [];
-  let max_shown = 5;
+  let max_shown = 3;
   for (var name in data) {
       if (data.hasOwnProperty(name)) {
           result = constrctChartCell(name, data[name], usedColor, max_shown);
