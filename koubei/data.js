@@ -42,7 +42,7 @@ function searchCourse() {
     	if (res.status == 0){
         loadTableData(res.data.full_result);
         loadChartData(res.data.avg_result);
-        $('#courseCode').html(courseCode);
+        $('.courseCode').html(courseCode);
       }
       else{
         alert(res['message']);
