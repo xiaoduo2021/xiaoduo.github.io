@@ -53,7 +53,7 @@
                                                         <h5>搜索</h5>
                                                         <span>您可以根据课程代码，如 <code>CSC108H5</code> 来搜索口碑：</span>
                                                         <br>
-                                                        <input type="text" id="courseCode_field" class="form-control" value="CSC290h5" maxlength="8">
+                                                        <input type="text" id="courseCode_field" class="form-control" value="eco100y1" maxlength="8">
                                                         <br>
                                                         <button class="btn waves-effect waves-light btn-primary btn-block" onclick="searchCourse()">搜索</button>
                                                     </div>
@@ -66,7 +66,7 @@
                                                         <span>若多名Professor曾经教过这门课，点击名字可隐藏任意Professor的口碑显示。分数越高表示学生对此维度的满意度越高</span>
                                                     </div>
                                                     <div class="card-block">
-                                                        <canvas id="radarChart" width="942" height="942" style="display: block; height: 314px; width: 314px;"></canvas>
+                                                        <canvas id="radarChart" width="1000" height="1300"></canvas>
                                                     </div>
                                                 </div>
                                             </div>
@@ -74,7 +74,7 @@
                                                 <div class="card">
                                                     <div class="card-header">
                                                         <h5>完整数据</h5>
-                                                        <span>以下是课程 <code id='courseCode'>CSC108H5F</code> 以往的完整口碑数据，各项满分均为<code>5</code>分，向右滑动查看更多维度</span>
+                                                        <span>以下是课程 <code id='courseCode'>请在上方搜索课程代码</code> 以往的完整口碑数据，各项满分均为<code>5</code>分，向右滑动查看更多维度</span>
                                                     </div>
                                                     <div class="card-block table-border-style">
                                                         <div class="table-responsive">
@@ -192,9 +192,11 @@
     <script type="text/javascript" src="files/bower_components/modernizr/js/modernizr.js"></script>
     <script type="text/javascript" src="files/bower_components/modernizr/js/css-scrollbars.js"></script>
     <!-- Chart js -->
-    <script type="text/javascript" src="files/bower_components/chart.js/js/Chart.js"></script>
+    <!-- <script type="text/javascript" src="files/bower_components/chart.js/js/Chart.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
     <!-- Custom js -->
-    <script type="text/javascript" src="files/assets/pages/chart/chartjs/chartjs-custom.js"></script>
+    <!-- <script type="text/javascript" src="files/assets/pages/chart/chartjs/chartjs-custom.js"></script> -->
+
     <script src="files/assets/js/pcoded.min.js"></script>
     <script src="files/assets/js/vertical/vertical-layout.min.js"></script>
     <script src="files/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>

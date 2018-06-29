@@ -1,13 +1,27 @@
-function drawRadarChart(datasets) {
-    var ctx = document.getElementById("radarChart");
+let radarChart = initRadarChart();
+
+function drawRadarChart(data) {
+    radarChart.config.data = {
+      labels: ["Lecture", "作业/考试", "整体评价", "课程负荷", "推荐指数"],
+      datasets: data
+    };
+    // radarChart.canvas.parentNode.style.height = '200px';
+    radarChart.update();
+}
+
+function initRadarChart() {
+    var ctx = $('#radarChart');
     var myChart = new Chart(ctx, {
         type: 'radar',
         data: {
-            labels: ["Lecture", "作业/考试", "整体评价", "课程负荷", "推荐指数"],
-            datasets: datasets
+          labels: ["Lecture", "作业/考试", "整体评价", "课程负荷", "推荐指数"],
+          datasets: {}
         },
-        options: {}
+        options: {
+          maintainAspectRatio: true,
+        }
     });
+    return myChart;
 }
 
 function searchCourse() {
@@ -95,5 +109,3 @@ function random_rgba() {
     var o = Math.round, r = Math.random, s = 255;
     return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',';
 }
-
-drawRadarChart();
