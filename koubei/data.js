@@ -1,12 +1,28 @@
 let radarChart = initRadarChart();
 
+$(document).ready( function () {
+    $('#full_table').DataTable({
+      paging: false,
+      // searching: false,
+      columns: [
+          { data: 'name' },
+          { data: 'term' },
+          { data: 'lecture' },
+          { data: 'assisgnment' },
+          { data: 'overall' },
+          { data: 'courseload' },
+          { data: 'recommand' },
+      ],
+    });
+} );
+
 function drawRadarChart(data) {
-    radarChart.config.data = {
-      labels: ["Lecture", "作业/考试", "整体评价", "课程负荷", "推荐指数"],
-      datasets: data
-    };
-    // radarChart.canvas.parentNode.style.height = '200px';
-    radarChart.update();
+  radarChart.config.data = {
+    labels: ["Lecture", "作业/考试", "整体评价", "课程负荷", "推荐指数"],
+    datasets: data
+  };
+  radarChart.update();
+  $('#hide-tip').show();
 }
 
 function initRadarChart() {
@@ -53,11 +69,18 @@ function searchCourse() {
 }
 
 function loadTableData(data){
-  let table_html = ""
+  // let table_html = ""
+  // for (i = 0; i < data.length; i++) {
+  //   table_html += getOneCell(data[i]);
+  // }
+  // $('#table_cells').html(table_html);
+
+  let lst = [];
   for (i = 0; i < data.length; i++) {
-    table_html += getOneCell(data[i]);
+    lst.push(Object.values(data[i]));
   }
-  $('#table_cells').html(table_html);
+  $('#full_table').dataTable().fnClearTable();
+  $('#full_table').dataTable().fnAddData(data);
 }
 
 function getOneCell(item) {
@@ -74,17 +97,19 @@ function getOneCell(item) {
 function loadChartData(data){
   let datasets = [];
   let usedColor = [];
+  let max_shown = 5;
   for (var name in data) {
       if (data.hasOwnProperty(name)) {
-          result = constrctChartCell(name, data[name], usedColor);
+          result = constrctChartCell(name, data[name], usedColor, max_shown);
           datasets.push(result.cellData);
           usedColor = result.usedColor;
+          max_shown -= 1;
       }
   }
   drawRadarChart(datasets);
 }
 
-function constrctChartCell(name, data, usedColor) {
+function constrctChartCell(name, data, usedColor, max_shown) {
   let color = random_rgba();
   while ($.inArray(color, usedColor) != -1){
     color = random_rgba();
@@ -101,6 +126,9 @@ function constrctChartCell(name, data, usedColor) {
           ],
           borderWidth: 2
   };
+  if ((max_shown) <= 0){
+    cellData.hidden = true;
+  }
   return {'cellData': cellData, 'usedColor': usedColor};
 }
 
