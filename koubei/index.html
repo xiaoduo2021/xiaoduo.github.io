@@ -58,7 +58,7 @@
                                                         <br>
                                                         <input type="text" autocomplete="off" id="courseCode_field" class="form-control" placeholder="CSC108H5" maxlength="8">
                                                         <br>
-                                                        <button class="btn waves-effect waves-light btn-primary btn-block" onclick="searchCourse()">搜索</button>
+                                                        <button class="btn waves-effect waves-light btn-primary btn-block" id='search-button' onclick="searchCourse()">搜索</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -94,14 +94,13 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6 col-lg-4" id='adsCard'>
-                                                <div class="card">
-                                                    <div class="card-block">
-                                                        <img id='ad1' src="files/assets/images/light-box/sl1.jpg" class="img-fluid m-b-10" alt="">
-                                                        <img id='ad2' src="files/assets/images/light-box/sl1.jpg" class="img-fluid m-b-10" alt="">
-                                                    </div>
-                                                </div>
+                                            <div class="col-md-6 col-lg-4" id='ad1' >
+                                                <div class="card" style="background-image:url();height: 110px;background-size:100%;"></div>
                                             </div>
+                                            <div class="col-md-6 col-lg-4" id='ad2' >
+                                                <div class="card" style="background-image:url();height: 110px;background-size:100%;"></div>
+                                            </div>
+
                                             <div class="col-md-12 col-lg-4" id='fullTableCard' style="display:none;">
                                                 <div class="card">
                                                     <div class="card-header">

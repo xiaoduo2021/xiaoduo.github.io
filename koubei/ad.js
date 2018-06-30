@@ -7,31 +7,31 @@ const adData = {
   ad: {
     UTM: [
       {
-        img: "https://www.joc.com/sites/default/files/field_feature_image/KFC_0.png",
+        img: "https://dummyimage.com/400x120/9e9e9e/616161",
         url: "http://www.kfc.ca",
       },
       {
-        img: "https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Ftimedotcom.files.wordpress.com%2F2018%2F06%2F800-21.jpg&w=800&q=85",
+        img: "https://dummyimage.com/400x120/9e9e9e/616161",
         url: "http://www.kfc.ca",
       },
     ],
     UTSG: [
       {
-        img: "https://www.joc.com/sites/default/files/field_feature_image/KFC_0.png",
+        img: "https://dummyimage.com/400x120/9e9e9e/616161",
         url: "http://www.kfc.ca",
       },
       {
-        img: "https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Ftimedotcom.files.wordpress.com%2F2018%2F06%2F800-21.jpg&w=800&q=85",
+        img: "https://dummyimage.com/400x120/9e9e9e/616161",
         url: "http://www.kfc.ca",
       },
     ],
     UTSC: [
       {
-        img: "https://www.joc.com/sites/default/files/field_feature_image/KFC_0.png",
+        img: "https://dummyimage.com/400x120/9e9e9e/616161",
         url: "http://www.kfc.ca",
       },
       {
-        img: "https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Ftimedotcom.files.wordpress.com%2F2018%2F06%2F800-21.jpg&w=800&q=85",
+        img: "https://dummyimage.com/400x120/9e9e9e/616161",
         url: "http://www.kfc.ca",
       },
     ],
@@ -53,8 +53,10 @@ $(document).ready( function () {
   let ad2 = ads[Math.floor(Math.random()*ads.length)];
 
   $("#footer_partner").html(adData.footer[campus]);
-  $("#ad1").attr("src", ad1.img);
-  $("#ad2").attr("src", ad2.img);
+
+  $("#ad1 div").css("background-image", 'url(' + ad1.img + ')');
+  $("#ad2 div").css("background-image", 'url(' + ad2.img + ')');
+
 
   // click event
   $("#ad1").click(function(){

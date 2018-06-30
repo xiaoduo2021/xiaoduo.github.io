@@ -58,6 +58,9 @@ function searchCourse() {
 		alert('请输入完整课程代码');
 		return;
 	}
+
+  $('#search-button').attr('disabled',"true");
+
 	const HOST = "https://api.xiaoduo.ca";
 	// const HOST = "http://127.0.0.1:8082";
     $.ajax({
@@ -67,6 +70,8 @@ function searchCourse() {
         },
         url: HOST + "/temp/koubei/searchCourseCode"
     }).done(function(res) {
+      $('#search-button').removeAttr("disabled")
+      
     	if (res.status == 0){
         loadTableData(res.data.full_result);
         loadChartData(res.data.avg_result);
@@ -86,6 +91,7 @@ function searchCourse() {
         alert(res['message']);
       }
     }).fail(function(jqXHR, textStatus, errorThrown) {
+      $('#search-button').removeAttr("disabled")
       alert("请求失败，请稍后重试");
     });
 }
