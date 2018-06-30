@@ -31,6 +31,8 @@ function drawRadarChart(data) {
     labels: ["Lecture", "作业/考试", "整体评价", "课程负荷", "推荐指数"],
     datasets: data
   };
+
+  // Update UI
   radarChart.update();
   $('#hide-tip').show();
 }
