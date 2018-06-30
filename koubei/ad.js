@@ -56,11 +56,16 @@ $(document).ready( function () {
   $("#ad1").attr("src", ad1.img);
   $("#ad2").attr("src", ad2.img);
 
+  // click event
   $("#ad1").click(function(){
-    location.href = ad1.url;
+    if (ad1.url){
+      location.href = ad1.url;
+    }
   });
   $("#ad2").click(function(){
-    location.href = ad2.url;
+    if (ad2.url){
+      location.href = ad2.url;
+    }
   });
 });
 
