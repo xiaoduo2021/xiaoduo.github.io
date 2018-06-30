@@ -50,7 +50,6 @@ $(document).ready( function () {
   const index = Math.floor(Math.random()*ads.length);
   let ad1 = ads[index];
   ads.splice(index, 1);
-  console.log(ads);
   let ad2 = ads[Math.floor(Math.random()*ads.length)];
 
   $("#footer_partner").html(adData.footer[campus]);
