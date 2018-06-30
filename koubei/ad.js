@@ -7,31 +7,31 @@ const adData = {
   ad: {
     UTM: [
       {
-        img: "https://dummyimage.com/400x120/9e9e9e/616161",
+        img: "https://dummyimage.com/350x120/9e9e9e/616161",
         url: "http://www.kfc.ca",
       },
       {
-        img: "https://dummyimage.com/400x120/9e9e9e/616161",
+        img: "https://dummyimage.com/350x120/9e9e9e/616161",
         url: "http://www.kfc.ca",
       },
     ],
     UTSG: [
       {
-        img: "https://dummyimage.com/400x120/9e9e9e/616161",
+        img: "https://dummyimage.com/350x120/9e9e9e/616161",
         url: "http://www.kfc.ca",
       },
       {
-        img: "https://dummyimage.com/400x120/9e9e9e/616161",
+        img: "https://dummyimage.com/350x120/9e9e9e/616161",
         url: "http://www.kfc.ca",
       },
     ],
     UTSC: [
       {
-        img: "https://dummyimage.com/400x120/9e9e9e/616161",
+        img: "https://dummyimage.com/350x120/9e9e9e/616161",
         url: "http://www.kfc.ca",
       },
       {
-        img: "https://dummyimage.com/400x120/9e9e9e/616161",
+        img: "https://dummyimage.com/350x120/9e9e9e/616161",
         url: "http://www.kfc.ca",
       },
     ],
