@@ -76,11 +76,6 @@
                                                         <h5><code class='courseCode'></code>Professor口碑对比</h5>
                                                     </div>
                                                     <div class="card-block">
-                                                        <div id='hide-tip' style="display:none;">
-                                                            <center>
-                                                                <label class="label label-inverse-danger">点击任意名字可隐藏对应Professor</label>
-                                                            </center>
-                                                        </div>
                                                         <canvas id="radarChart" width="1000" height="1300"></canvas>
                                                         <br>
                                                         <div class="alert alert-primary border-primary">
@@ -88,10 +83,15 @@
                                                                 <i class="far fa-times-circle"></i>
                                                             </button>
                                                             <p>
+                                                                <li>点击任意名字可隐藏对应Professor</li>
                                                                 <li><code>课程负荷</code>：分数越低表示课程负荷越小</li>
                                                                 <li><code>其他维度</code>：分数越高表示学生对此维度的满意度越高</li>
                                                             </p>
                                                         </div>
+                                                        <center>
+                                                            <button onclick="view_datatable()" class="btn waves-effect waves-light btn-primary btn-block">查看完整数据</button>
+                                                        </center>
+                                                        
                                                     </div>
                                                 </div>
                                             </div>

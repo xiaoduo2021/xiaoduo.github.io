@@ -53,7 +53,6 @@ function drawRadarChart(data) {
 
   // Update UI
   radarChart.update();
-  $('#hide-tip').show();
 }
 
 function initRadarChart() {
@@ -131,7 +130,7 @@ function loadTableData(data){
 function loadChartData(data){
   let datasets = [];
   let usedColor = [];
-  let max_shown = 3;
+  let max_shown = 2;
   for (var name in data) {
       if (data.hasOwnProperty(name)) {
           result = constrctChartCell(name, data[name], usedColor, max_shown);
@@ -170,4 +169,10 @@ function constrctChartCell(name, data, usedColor, max_shown) {
 function random_rgba() {
     var o = Math.round, r = Math.random, s = 255;
     return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',';
+}
+
+function view_datatable(){
+  $('html, body').animate({
+    scrollTop: $("#fullTableCard").offset().top - 20
+  }, 1000);
 }
