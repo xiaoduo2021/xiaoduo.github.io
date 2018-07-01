@@ -5,6 +5,7 @@ let complete = new autoComplete({
         minChars: 3,
         source: function(term, suggest){
             term = term.toLowerCase();
+            full_courses.sort()
             var choices = full_courses;
             var matches = [];
             for (i=0; i<choices.length; i++)
