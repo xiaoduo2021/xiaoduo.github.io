@@ -43,14 +43,11 @@ $(document).ready( function () {
     $(".dataTables_filter input").addClass("form-control")
     $(".dataTables_filter input").attr("placeholder", '搜索');
 
-    // auto complete
-
-
 });
 
 function drawRadarChart(data) {
   radarChart.config.data = {
-    labels: ["Lecture", "作业/考试", "整体评价", "课程负荷", "推荐指数"],
+    labels: ["课堂质量", "作业/考试", "整体评价", "课程负荷", "推荐指数"],
     datasets: data
   };
 
@@ -122,12 +119,6 @@ function searchCourse() {
 }
 
 function loadTableData(data){
-  // let table_html = ""
-  // for (i = 0; i < data.length; i++) {
-  //   table_html += getOneCell(data[i]);
-  // }
-  // $('#table_cells').html(table_html);
-
   let lst = [];
   for (i = 0; i < data.length; i++) {
     lst.push(Object.values(data[i]));
@@ -136,16 +127,6 @@ function loadTableData(data){
   $('#full_table').dataTable().fnAddData(data);
 }
 
-function getOneCell(item) {
-  let html = '<tr><th scope="row">' + item.name +'</th>';
-  html += '<td>' + item.term + '</td>';
-  html += '<td>' + item.lecture + '</td>';
-  html += '<td>' + item.assisgnment + '</td>';
-  html += '<td>' + item.overall + '</td>';
-  html += '<td>' + item.courseload + '</td>';
-  html += '<td>' + item.recommand + '</td></tr>';
-  return html;
-}
 
 function loadChartData(data){
   let datasets = [];
