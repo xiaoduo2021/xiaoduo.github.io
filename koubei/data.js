@@ -108,6 +108,9 @@ function searchCourse() {
         }, 1000);
 
         $('.courseCode').html(courseCode);
+
+        // render ads
+        renderAd(campusMapping(courseCode));
       }
       else{
         alert(res['message']);

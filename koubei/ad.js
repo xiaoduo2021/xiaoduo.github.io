@@ -44,8 +44,14 @@ $(document).ready( function () {
     campus = 'UTSG';
   }
   campus = campus.toUpperCase();
-  let ads = adData.ad[campus];
+  renderAd(campus);
+});
 
+
+function renderAd(campus){
+  let ads = adData.ad[campus].slice();
+  console.log('ads', ads);
+  
   // pick random at top
   const index = Math.floor(Math.random()*ads.length);
   let ad1 = ads[index];
@@ -53,6 +59,7 @@ $(document).ready( function () {
   let ad2 = ads[Math.floor(Math.random()*ads.length)];
 
   $("#footer_partner").html(adData.footer[campus]);
+  
 
   $("#ad1 div").css("background-image", 'url(' + ad1.img + ')');
   $("#ad2 div").css("background-image", 'url(' + ad2.img + ')');
@@ -69,7 +76,17 @@ $(document).ready( function () {
       location.href = ad2.url;
     }
   });
-});
+}
+
+function campusMapping(courseCode){
+  const last = courseCode.slice(-1);
+  // console.log(last);
+  return {
+    '1': "UTSG",
+    '3': "UTSC",
+    '5': "UTM",
+  }[last];
+}
 
 function getUrlParams(key){
   var url = new URL(location.href);
