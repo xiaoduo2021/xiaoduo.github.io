@@ -50,8 +50,7 @@ $(document).ready( function () {
 
 function renderAd(campus){
   let ads = adData.ad[campus].slice();
-  console.log('ads', ads);
-  
+
   // pick random at top
   const index = Math.floor(Math.random()*ads.length);
   let ad1 = ads[index];
