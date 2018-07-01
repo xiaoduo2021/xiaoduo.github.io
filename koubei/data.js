@@ -1,5 +1,19 @@
 let radarChart = initRadarChart();
 
+let complete = new autoComplete({
+        selector: '#courseCode_field',
+        minChars: 3,
+        source: function(term, suggest){
+            term = term.toLowerCase();
+            var choices = full_courses;
+            var matches = [];
+            for (i=0; i<choices.length; i++)
+                if (~choices[i].toLowerCase().indexOf(term)) matches.push(choices[i]);
+            suggest(matches);
+        }
+    });
+
+
 $(document).ready( function () {
     $('#full_table').DataTable({
       paging: false,
@@ -24,6 +38,10 @@ $(document).ready( function () {
     });
     $(".dataTables_filter input").addClass("form-control")
     $(".dataTables_filter input").attr("placeholder", '搜索');
+
+    // auto complete
+
+
 });
 
 function drawRadarChart(data) {
@@ -71,7 +89,7 @@ function searchCourse() {
         url: HOST + "/temp/koubei/searchCourseCode"
     }).done(function(res) {
       $('#search-button').removeAttr("disabled")
-      
+
     	if (res.status == 0){
         loadTableData(res.data.full_result);
         loadChartData(res.data.avg_result);
