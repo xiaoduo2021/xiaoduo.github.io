@@ -39,11 +39,11 @@ const adData = {
 }
 
 $(document).ready( function () {
-  let campus = getUrlParams('campus').toUpperCase();
+  let campus = getUrlParams('campus')
   if (!campus){
-    return;
+    campus = 'UTSG';
   }
-
+  campus = campus.toUpperCase();
   let ads = adData.ad[campus];
 
   // pick random at top
