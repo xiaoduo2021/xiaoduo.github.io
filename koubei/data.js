@@ -10,8 +10,11 @@ let complete = new autoComplete({
             for (i=0; i<choices.length; i++)
                 if (~choices[i].toLowerCase().indexOf(term)) matches.push(choices[i]);
             suggest(matches);
-        }
-    });
+        },
+        onSelect: function(e, term, item){
+          searchCourse(term);
+    }
+});
 
 
 $(document).ready( function () {
