@@ -29,25 +29,23 @@
     <link rel="stylesheet" type="text/css" href="files/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="files/assets/css/pages.css">
     <link rel="stylesheet" type="text/css" href="auto-complete/auto-complete.css">
-
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121624730-1"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
 
-      gtag('config', 'UA-121624730-1');
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-121624730-1');
     </script>
-
 </head>
 
 <body>
     <div id="pcoded" class="pcoded">
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
-
             <div class="pcoded-main-container">
                 <div class="pcoded-wrapper">
                     <div class="pcoded-content">
@@ -78,23 +76,26 @@
                                                         <h5><code class='courseCode'></code>Professor口碑对比</h5>
                                                     </div>
                                                     <div class="card-block">
-                                                      <div id='hide-tip' style="display:none;">
-                                                        <center>
-                                                          <label class="label label-inverse-danger">点击任意名字可隐藏对应Professor</label>
-                                                        </center>
-                                                        
-                                                      </div>
+                                                        <div id='hide-tip' style="display:none;">
+                                                            <center>
+                                                                <label class="label label-inverse-danger">点击任意名字可隐藏对应Professor</label>
+                                                            </center>
+                                                        </div>
                                                         <canvas id="radarChart" width="1000" height="1300"></canvas>
                                                         <br>
-                                                        <center>
-                                                            <label class="label label-primary">分数越高表示学生对此维度的满意度越高</label>
-                                                        </center>
+                                                        <div class="alert alert-primary border-primary">
+                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                <i class="far fa-times-circle"></i>
+                                                            </button>
+                                                            <p>
+                                                                <li><code>课程负荷</code>：分数越低表示课程负荷越小</li>
+                                                                <li><code>其他维度</code>：分数越高表示学生对此维度的满意度越高</li>
+                                                            </p>
+                                                        </div>
                                                     </div>
-
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-lg-4" id='xiaoduoAdCard'>
-
                                                 <div class="card text-white bg-c-red">
                                                     <div class="card-header">
                                                         <h5 class="text-white">小多课程表 <b>了解一下</b></h5>
@@ -105,13 +106,12 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6 col-lg-4" id='ad1' >
+                                            <div class="col-md-6 col-lg-4" id='ad1'>
                                                 <div class="card" style="background-image:url();height: 120px;background-size:100% 100%;"></div>
                                             </div>
-                                            <div class="col-md-6 col-lg-4" id='ad2' >
+                                            <div class="col-md-6 col-lg-4" id='ad2'>
                                                 <div class="card" style="background-image:url();height: 120px;background-size:100% 100%;"></div>
                                             </div>
-
                                             <div class="col-md-12 col-lg-4" id='fullTableCard' style="display:none;">
                                                 <div class="card">
                                                     <div class="card-header">
@@ -142,7 +142,8 @@
                                         </div>
                                     </div>
                                     <center>
-                                        <p>小多课程表 x <text id='footer_partner'>Avantclass</text> 联合发布</p>
+                                        <p>小多课程表 x
+                                            <text id='footer_partner'>Avantclass</text> 联合发布</p>
                                     </center>
                                 </div>
                             </div>
@@ -218,20 +219,15 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
     <!-- Custom js -->
     <!-- <script type="text/javascript" src="files/assets/pages/chart/chartjs/chartjs-custom.js"></script> -->
-
     <script src="files/assets/js/pcoded.min.js"></script>
     <script src="files/assets/js/vertical/vertical-layout.min.js"></script>
     <script src="files/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script type="text/javascript" src="files/assets/js/script.js"></script>
     <script type="text/javascript" src="auto-complete/auto-complete.min.js"></script>
-
     <script type="text/javascript" src="full_courses.js"></script>
     <script type="text/javascript" src="data.js"></script>
     <script type="text/javascript" src="ad.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    
-
 </body>
-
 
 </html>
