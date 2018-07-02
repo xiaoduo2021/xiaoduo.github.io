@@ -45,6 +45,12 @@ $(document).ready( function () {
   }
   campus = campus.toUpperCase();
   renderAd(campus);
+  
+  // hide xiaoduo ad in client
+  const source = getUrlParams('source');
+  if (source){
+    $("#xiaoduoAdCard").hide();
+  }
 });
 
 
