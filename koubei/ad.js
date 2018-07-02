@@ -49,6 +49,10 @@ $(document).ready( function () {
 
 
 function renderAd(campus){
+  $("#ad1").hide();
+  $("#ad2").hide();
+  return;
+  
   let ads = adData.ad[campus].slice();
 
   // pick random at top
