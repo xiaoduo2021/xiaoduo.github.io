@@ -2,7 +2,7 @@ const adData = {
   footer: {
     UTM: "AvantClass",
     UTSG: "SavvyPro",
-    UTSC: "YouClass",
+    UTSC: "AvantClass",
   },
   ad: {
     UTM: [
@@ -57,7 +57,7 @@ $(document).ready( function () {
 function renderAd(campus){
   $("#ad1").hide();
   $("#ad2").hide();
-  return;
+  // return;
   
   let ads = adData.ad[campus].slice();
 
@@ -70,8 +70,8 @@ function renderAd(campus){
   $("#footer_partner").html(adData.footer[campus]);
   
 
-  $("#ad1 div").css("background-image", 'url(' + ad1.img + ')');
-  $("#ad2 div").css("background-image", 'url(' + ad2.img + ')');
+  // $("#ad1 div").css("background-image", 'url(' + ad1.img + ')');
+  // $("#ad2 div").css("background-image", 'url(' + ad2.img + ')');
 
 
   // click event
