@@ -59,6 +59,10 @@ function renderAd(campus){
   $("#ad2").hide();
   // return;
   
+  if (campus != 'UTSG'){
+    $("#utsgAdCard").hide();
+  }
+
   let ads = adData.ad[campus].slice();
 
   // pick random at top
