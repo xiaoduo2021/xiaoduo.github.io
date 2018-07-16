@@ -1,7 +1,7 @@
 const adData = {
   footer: {
     UTM: "AvantClass",
-    UTSG: "SavvyPro",
+    UTSG: "学长学姐帮帮忙",
     UTSC: "AvantClass",
   },
   ad: {
