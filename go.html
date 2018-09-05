@@ -1,0 +1,13 @@
+<script type="text/javascript">
+function getUrlParams(key) {
+    var url = new URL(location.href);
+    var c = url.searchParams.get(key);
+    return c
+}
+var go = getUrlParams("to")
+const mapping = {
+	"p3w": "https://www.python.org/ftp/python/3.6.6/python-3.6.6.exe",
+	"p3m": "https://www.python.org/ftp/python/3.6.6/python-3.6.6-macosx10.9.pkg"
+}
+window.location.href = mapping[go];
+</script>
