@@ -7,10 +7,12 @@ var ReadPacket = React.createClass({
             countdownText: null,
             animation: false,
             status: -1, // -1: cd, 0: 等待拆开 1: 拆开后, 2: 拆开后 - 失败
-            message: null
+            message: null,
+            phone: null
         };
     },
     componentDidMount() {
+        this.phoneChanged = this.phoneChanged.bind(this);
         this.getEventStatus();
     },
     stopAnimation: function () {
@@ -31,11 +33,16 @@ var ReadPacket = React.createClass({
             }
         }, error => {});
     },
+    phoneChanged(value) {
+        this.setState({
+            phone: event.target.value
+        });
+    },
     openRedPacket: function () {
         if (this.state.animation) {
             return;
         }
-        const phone = prompt("请输入领取奖励的手机号码");
+        const phone = this.state.phone;
         if (!phone || phone.length != 10) {
             alert("手机号码格式错误");
             return;
@@ -148,7 +155,7 @@ var ReadPacket = React.createClass({
                         React.createElement(
                             "div",
                             { className: "redpack-description white-text" },
-                            "\u606D\u559C\u53D1\u8D22 \u5927\u5409\u5927\u5229"
+                            React.createElement("input", { type: "text", placeholder: "\u8F93\u5165\u624B\u673A\u53F7\u9886\u5956", value: this.state.phone, onChange: this.phoneChanged })
                         )
                     ),
                     React.createElement(
