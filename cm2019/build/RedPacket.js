@@ -155,7 +155,7 @@ var ReadPacket = React.createClass({
                         React.createElement(
                             "div",
                             { className: "redpack-description white-text" },
-                            React.createElement("input", { type: "text", placeholder: "\u8F93\u5165\u624B\u673A\u53F7\u9886\u5956", value: this.state.phone, onChange: this.phoneChanged })
+                            React.createElement("input", { type: "text", placeholder: "\u8F93\u5165\u624B\u673A\u53F7\u53C2\u4E0E\u62BD\u5956", value: this.state.phone, onChange: this.phoneChanged })
                         )
                     ),
                     React.createElement(

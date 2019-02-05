@@ -124,7 +124,7 @@ var ReadPacket = React.createClass({
                             <h2 className='white-text'>馋猫</h2>
                             <span className='redpack-text'>给你发了一个红包</span>
                             <div className='redpack-description white-text'>
-                            <input type="text" placeholder="输入手机号领奖" value={this.state.phone} onChange={this.phoneChanged} />
+                            <input type="text" placeholder="输入手机号参与抽奖" value={this.state.phone} onChange={this.phoneChanged} />
                             </div>
                         </div>
 
