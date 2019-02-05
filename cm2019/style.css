@@ -3,6 +3,13 @@
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+body {
+  position: relative;
+}
+
 html {
    margin: 0px;
    height: 100%;
