@@ -19,7 +19,7 @@ var ReadPacket = React.createClass({
       .then(res => res.json())
       .then(
         (result) => {
-          console.log(result);
+          // console.log(result);
           const status = result.nleft > 0;
           const next_start = result.next_start;
           this.setState({
