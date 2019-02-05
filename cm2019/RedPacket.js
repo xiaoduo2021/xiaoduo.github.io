@@ -73,10 +73,11 @@ var ReadPacket = React.createClass({
       const current = Math.floor(Date.now() / 1000);
       let secondsRemaining = this.state.nextEventTime - current;
 
-      var min = Math.floor(secondsRemaining / 60);
-      var sec = secondsRemaining - (min * 60);
+      var hrs = Math.floor(secondsRemaining / 3600);
+      var min = Math.floor(secondsRemaining / 60) % 60;
+      var sec = Math.floor(secondsRemaining % 60);
       this.setState({
-        countdownText: `${min}:${sec}`
+        countdownText: `${hrs}:${min}:${sec}`
       })
       if (min === 0 & sec === 0) {
         clearInterval(this.intervalHandle);
