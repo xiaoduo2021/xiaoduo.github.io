@@ -100,9 +100,9 @@ var ReadPacket = React.createClass({
                             <div className='redpack-avatar'>
                                 <img src='./assets/avatar.png' alt='头像' width='80' height='80'/>
                             </div>
-                            <h2 className='white-text'>馋猫2019红包雨</h2>
-                            <span className='redpack-text'>本轮红包已经抢完</span>
-                            <div className='redpack-description white-text'>下一轮倒计时</div>
+                            <h2 className='white-text'>唤醒一天好活力</h2>
+                            <h2 className='white-text'>再忙也要吃早餐</h2>
+                            <span className='redpack-text'>本轮已经抢完, 下一轮倒计时</span>
                         </div>
 
                         <div id='redpack-open' className={this.state.animation ? 'rotate' : ''}

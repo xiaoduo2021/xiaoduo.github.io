@@ -102,17 +102,17 @@ var ReadPacket = React.createClass({
                         React.createElement(
                             "h2",
                             { className: "white-text" },
-                            "\u998B\u732B2019\u7EA2\u5305\u96E8"
+                            "\u5524\u9192\u4E00\u5929\u597D\u6D3B\u529B"
+                        ),
+                        React.createElement(
+                            "h2",
+                            { className: "white-text" },
+                            "\u518D\u5FD9\u4E5F\u8981\u5403\u65E9\u9910"
                         ),
                         React.createElement(
                             "span",
                             { className: "redpack-text" },
-                            "\u672C\u8F6E\u7EA2\u5305\u5DF2\u7ECF\u62A2\u5B8C"
-                        ),
-                        React.createElement(
-                            "div",
-                            { className: "redpack-description white-text" },
-                            "\u4E0B\u4E00\u8F6E\u5012\u8BA1\u65F6"
+                            "\u672C\u8F6E\u5DF2\u7ECF\u62A2\u5B8C, \u4E0B\u4E00\u8F6E\u5012\u8BA1\u65F6"
                         )
                     ),
                     React.createElement(
