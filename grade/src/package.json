@@ -1,0 +1,14 @@
+{
+  "name": "semantic-ui-react-example",
+  "version": "0.0.0",
+  "description": "A simple example deployed using react-codesandboxer",
+  "main": "index.js",
+  "dependencies": {
+    "faker": "latest",
+    "lodash": "latest",
+    "react": "latest",
+    "prop-types": "latest",
+    "semantic-ui-react": "latest",
+    "react-dom": "latest"
+  }
+}
