@@ -104,7 +104,7 @@ button[type="button"]{ border:none; background:none;}
 .header{ width:100%; height:100%; float:left; background:#fe4967; position:relative;}
 .header .left-side{ width:30%; height:100%; position:absolute; left:0; top:0; background:url(../images/header-red-bg.jpg) center no-repeat; background-size:cover;}
 .header .right-side{ width:70%; height:100%; position:absolute; right:0; top:0; background:url(../images/header-red-pattern-bg.png) left no-repeat; background-size:auto 100%;}
-.header .right-side .iphone-mockup{ height:100%; position:absolute; left:-22%; bottom:-25%;}
+.header .right-side .iphone-mockup{ height:100%; position:absolute; left:-22%; bottom:-15%;}
 .header .right-side .ver-middle{ padding-left:20%;}
 .header .right-side h1{ color:#fff; font-size:80px; font-weight:700; line-height:100px; margin-bottom:50px;}
 .header .right-side h1 b{ font-size:137px; font-weight:900;}
