@@ -72,8 +72,7 @@
             >
           </p>
           <p class="para mt-35">
-            这一年TA一共上了<span class="fs-18 fc-red" id="totalHours"
-              >340</span
+            这一年TA一共上了<span class="fs-18 fc-red" id="totalHours">340</span
             >小时的课
           </p>
           <p class="para mt-10">相信TA一定学到了不少知识吧</p>
@@ -302,13 +301,9 @@
         </div>
         <div class="leaves-wrapper"></div>
         <div class="content">
+          <p class="para">这一年</p>
           <p class="para">
-            这一年
-          </p>
-          <p class="para">
-            <span class="fc-red" id="gradeLevel"
-              >非常高的成绩</span
-            >
+            <span class="fc-red" id="gradeLevel">非常高的成绩</span>
           </p>
           <p class="para para-1">
             <span class="fs-18 fc-red" id="description">我是彩虹屁</span>
@@ -346,136 +341,96 @@
     <script src="./js/App.js"></script>
     <!-- main -->
     <script lang="javascript">
-        jQuery(document).ready(function($) {
-          $('#app').fullpage({
-            onLeave: function(index, nextIndex, direction) {
-              console.log(index + ' leave direction: ' + direction);
-            },
-            afterLoad: function(anchorLink, index) {
-              console.log(index + ' loaded');
-            },
-            sectionColor: ['yellow', 'green', 'blue', 'purple'],
-            fadingEffect: true
-          });
-
-          /*前往正文页面=>立即查看*/
-          $('#app .page-1 .button').click(function() {
-            $.fn.fullpage.moveSectionDown();
-          });
-
-          /*回顶部=>重温TA的2017*/
-          $('#app .page-16 .buttons .button').click(function() {
-            $.fn.fullpage.moveTo(1, 0);
-          });
-
-          /*测试*/
-          // $.fn.fullpage.moveTo(5, 0);
-
-          const API = `http://192.168.2.32:3000`
-          // const API = `https://duo-timetable-api.herokuapp.com/`
-
-          $.post(`${API}/application/ca-utsg/data`,
-          {
-            appId: 'lookback_2021',
-            payload: {
-              method: 'get',
-              id: new URLSearchParams(window.location.search).get('id')
-            }
+      jQuery(document).ready(function($) {
+        $('#app').fullpage({
+          onLeave: function(index, nextIndex, direction) {
+            console.log(index + ' leave direction: ' + direction);
           },
-          function(data, status){
-            if (status === 'success') {
-              renderPage(data.data)
-            }
-          });
+          afterLoad: function(anchorLink, index) {
+            console.log(index + ' loaded');
+          },
+          sectionColor: ['yellow', 'green', 'blue', 'purple'],
+          fadingEffect: true
+        });
 
-          // Get data from API
-      //     const pageData = [
-      //       {
-      //         nickname: "Khalil"
-      //       },
-      //       {
-      //         totalCredits: 4.5,
-      //         finishedPercentage: 20,
-      //         totalHours: 400,
-      //       },
-      //       {
-      //         frequentTime: '早上',
-      //         givenTitle: "早起狂人"
-      //       },
-      //       {
-      //         "itemsCanBeBought": "13个『MacBook Pro』",
-      //         "investName": "贵州茅台股票",
-      //         "returnInItems": "亏掉的钱可以买50个『CL指甲油』"
-      //       },
-      //       {
-      //     "avatar": "http://n.sinaimg.cn/spider20191217/63/w440h423/20191217/7667-ikvenft3844239.jpg",
-      //     "bestCourse": "STA347H1",
-      //     "bestLevel": "勇夺A+",
-      //     "otherHighlights": [
-      //         "CSC209H5勇夺A+",
-      //         "CSC258H5勇夺A+",
-      //         "CSC263H5勇夺A-",
-      //         "STA258H5勇夺A",
-      //         "STA261H1幸运压线",
-      //         "STA302H1幸运压线",
-      //         "STA347H1勇夺A+",
-      //         "CSC324H5幸运压线",
-      //         "STA304H5勇夺A"
-      //     ]
-      // },
-      //       {
-      //         gradeLevel: "非常高的成绩",
-      //         description: "我是彩虹屁lol"
-      //       },
-      //     ]
+        /*前往正文页面=>立即查看*/
+        $('#app .page-1 .button').click(function() {
+          $.fn.fullpage.moveSectionDown();
+        });
 
-          function renderPage(data) {
-            if (data.page1) {
-              $('#nickname').html(data.page1.nickname)
-            } else {
-              $('#page1').remove()
-            }
+        /*回顶部=>重温TA的2017*/
+        $('#app .page-16 .buttons .button').click(function() {
+          $.fn.fullpage.moveTo(1, 0);
+        });
 
-            if (data.page2) {
-              $('#totalCredits').html(data.page2.totalCredits)
-              $('#finishedPercentage').html(`${data.page2.finishedPercentage}%`)
-              $('#totalHours').html(data.page2.totalHours)
-            } else {
-              $('#page2').remove()
-            }
+        /*测试*/
+        // $.fn.fullpage.moveTo(5, 0);
 
-            if (data.page3) {
-              $('#frequentTime').html(data.page3.frequentTime)
-              $('#givenTitle').html(data.page3.givenTitle)
-            } else {
-              $('#page3').remove()
-            }
+        const API = `http://192.168.2.32:3000`
+        // const API = `https://duo-timetable-api.herokuapp.com/`
 
-            if (data.page4) {
-              $('#itemsCanBeBought').html(data.page4.itemsCanBeBought)
-              $('#investName').html(data.page4.investName)
-              $('#returnInItems').html(data.page4.returnInItems)
-            } else {
-              $('#page4').remove()
-            }
-
-            if (data.page5) {
-              $('#avatar').attr("src", data.page5.avatar)
-              $('#bestCourse').html(data.page5.bestCourse)
-              $('#bestLevel').html(data.page5.bestLevel)
-              $('#courseHighlights').html(data.page5.otherHighlights.map((item, index) => `<li class="line line-${index}"><span class="text">${item}</span></li>`))
-            } else {
-              $('#page5').remove()
-            }
-
-            if (data.page6) {
-              $('#gradeLevel').html(data.page6.gradeLevel)
-              $('#description').html(`『${data.page6.description}』`)
-            } else {
-              $('#page6').remove()
-            }
+        $.post(`${API}/application/ca-utsg/data`,
+        {
+          appId: 'lookback_2021',
+          payload: {
+            method: 'get',
+            id: new URLSearchParams(window.location.search).get('id')
+          }
+        },
+        function(data, status){
+          if (status === 'success') {
+            renderPage(data.data)
           }
         });
+
+
+        function renderPage(data) {
+          if (data.page1) {
+            $('#nickname').html(data.page1.nickname)
+          } else {
+            $('#page1').remove()
+          }
+
+          if (data.page2) {
+            $('#totalCredits').html(data.page2.totalCredits)
+            $('#finishedPercentage').html(`${data.page2.finishedPercentage}%`)
+            $('#totalHours').html(data.page2.totalHours)
+          } else {
+            $('#page2').remove()
+          }
+
+          if (data.page3) {
+            $('#frequentTime').html(data.page3.frequentTime)
+            $('#givenTitle').html(data.page3.givenTitle)
+          } else {
+            $('#page3').remove()
+          }
+
+          if (data.page4) {
+            $('#itemsCanBeBought').html(data.page4.itemsCanBeBought)
+            $('#investName').html(data.page4.investName)
+            $('#returnInItems').html(data.page4.returnInItems)
+          } else {
+            $('#page4').remove()
+          }
+
+          if (data.page5) {
+            $('#avatar').attr("src", data.page5.avatar)
+            $('#bestCourse').html(data.page5.bestCourse)
+            $('#bestLevel').html(data.page5.bestLevel)
+            $('#courseHighlights').html(data.page5.otherHighlights.map((item, index) => `<li class="line line-${index}"><span class="text">${item}</span></li>`))
+          } else {
+            $('#page5').remove()
+          }
+
+          if (data.page6) {
+            $('#gradeLevel').html(data.page6.gradeLevel)
+            $('#description').html(`『${data.page6.description}』`)
+          } else {
+            $('#page6').remove()
+          }
+        }
+      });
     </script>
   </body>
 </html>
