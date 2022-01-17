@@ -5884,7 +5884,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  background: url("http://s3.music.126.net/nact/s/client/images/year2017/cover/cover_bg.jpg?91115a3fd39e5158b3387c3eec828793")
+  background: url("../assets/cover_bg.jpeg")
     no-repeat;
   background-size: cover;
 }
